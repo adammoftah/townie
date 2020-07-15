@@ -1,12 +1,15 @@
 import React, { useState, useCallback } from 'react';
 
+function titleCase(string){
+  const y = string.split("_");
+  y.forEach(function(value, i, array){
+    array[i] = array[i][0].toUpperCase() + array[i].slice(1);
+  });
+  return (y.join(" "));
+}
 
 export const MapMarker = ({ text, site_info }) => {
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
-  //console.log("markers",markers)
-  //console.log("key",address)
-  //console.log("info",info)
-  //info = "--"
+  const [isInfoOpen, setIsInfoOpen] = useState(false);  
 
   const toggleInfo = useCallback((e) => {
     setIsInfoOpen((wasOpen) => !wasOpen);
@@ -20,7 +23,7 @@ export const MapMarker = ({ text, site_info }) => {
       >   
       {Object.keys(site_info).map(key => (
         <p>
-          {key}: {site_info[key]}
+          {titleCase(key)}: {site_info[key]}
         </p>
       ))}
       </div>
