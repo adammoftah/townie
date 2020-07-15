@@ -16,12 +16,29 @@ function CovidTestingSitesPage() {
   useEffect(() => {
     const formattedData = (data || []).map((site) => ({
       key: `${site.site_name}+${site.coordinates.lat}+${site.coordinates.lng}`,
-      text: site.site_name,
+      name: site.site_name,   
+      site_info: {
+        provider_url: site.provider_url,
+        additional_info: site.additional_info,
+        address: site.address,
+        phone: site.phone,
+        monday: site.monday,
+        tuesday: site.tuesday,
+        wednesday: site.wednesday,
+        thursday: site.thursday,
+        friday: site.friday,
+        saturday: site.saturday,
+        sunday: site.sunday,
+        screening_required: site.screening_required,
+        appointment_required: site.appointment_required,
+        antibody_testing: site.antibody_testing, 
+      },                   
       coordinates: {
         lat: site.coordinates.lat,
         lng: site.coordinates.lng,
       },
     }));
+    //console.log("formattedData",formattedData);
     setMapMarkers(formattedData);
 
     return () => {

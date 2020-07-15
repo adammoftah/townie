@@ -24,9 +24,10 @@ export function GoogleMap() {
        {markers.map((item) => (
           <MapMarker
             key={item.key}
-            text={item.text}
+            text={item.name}
             lat={ item.coordinates.lat}
             lng={ item.coordinates.lng}
+            site_info= {item.site_info}             
           />
         ))}
       </GoogleMapReact>
