@@ -1,0 +1,20 @@
+[  
+    {
+      "text": "Cullen's House",
+      "lat": 40.62767,
+      "lng": -74.02171,
+      "info": "This is Cullen's house in Bay Ridge. He has lived here since 2015"
+    },
+    {
+      "text": "Aunt Shari's House",
+      "lat": 40.60826,
+      "lng": -73.94468,
+      "info": "This is Aunt Shari's house. She lived here from 1940 to 2016."
+    },
+    {
+      "text": "Uncle Jonny's House",
+      "lat": 40.63458,
+      "lng": -73.96658,
+      "info": "This is Uncle Jonny's house. He lived here from 2009 to 2017"
+    }
+  ]

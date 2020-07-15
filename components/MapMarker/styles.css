@@ -1,0 +1,35 @@
+.map-marker-container {
+  position: absolute;
+}
+
+.map-marker {
+  text-align: center;
+  color: #3f51b5;
+  font-size: 0.75rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.map-marker,
+.map-marker-info {
+  border-radius: 3px;
+  background-color: white;
+  padding: 0.3333rem;
+  border: 1px solid #ccc;
+  box-shadow:
+    0 0 2px 0 rgba(0, 0, 0, 0.25),
+    1px 4px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.map-marker-info {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 0.5rem);
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.map-marker-info--active {
+  display: block;
+}

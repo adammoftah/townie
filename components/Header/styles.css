@@ -1,0 +1,8 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 2rem;
+  padding: 0 2rem;
+  height: 100%;
+}

@@ -1,0 +1,19 @@
+.nav-tabs {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 1rem;
+  grid-auto-flow: column;
+  height: 100%;
+  align-items: end;
+}
+
+.nav-tabs__link {
+  display: block;
+  color: black;
+  text-decoration: none;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  padding: 0.3333rem 0.5rem;
+}

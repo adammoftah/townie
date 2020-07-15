@@ -1,0 +1,30 @@
+@import '../components/MapLayout/styles.css';
+@import '../components/MapMarker/styles.css';
+@import '../components/GoogleMap/styles.css';
+@import '../components/Header/styles.css';
+@import '../components/NavTabs/styles.css';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+.app-container {
+  height: 100vh;
+  display: grid;
+  grid:
+    "main-header" 60px
+    "main-content" 1fr
+    / 100%;
+}
+
+.app-container__main-header {
+  grid-area: main-header;
+}
+
+.app-container__main-content {
+  grid-area: main-content;
+}

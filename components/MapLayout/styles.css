@@ -1,0 +1,21 @@
+.map-layout-container {
+  align-self: stretch;
+  display: grid;
+  height: 100%;
+  grid:
+    ". nav-tabs" 40px
+    "sidebar-content map-content" 1fr
+    / 1fr 2fr;
+}
+
+.map-layout__nav-tabs {
+  grid-area: nav-tabs;
+}
+
+.map-layout__sidebar {
+  grid-area: sidebar-content;
+}
+
+.map-layout__map-content {
+  grid-area: map-content;
+}
