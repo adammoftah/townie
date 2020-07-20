@@ -1,53 +1,69 @@
-import React, { useEffect } from 'react';
-import useSwr from 'swr';
+import React, { Component } from 'react';
 
-import { MapMarkersContext } from 'components/MapMarkersContext';
-import { getLayout } from 'components/MapLayout';
-
-const fetcher = (...args) => fetch(...args).then(res => res.json())
-
-function RepresentativesPage() {
-    const { setState: setMapMarkers } = React.useContext(MapMarkersContext);
-    const { data, error } = useSwr('https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBe7_ta_1zNod6CsCJI6ssWk64kyO14HZo&address=104-40%20Queens%20Blvd%2011375', fetcher);
-    if (error) {
-      console.error('Error loading data Google Civic API: ', error);
+const RepresentativesByName = ({ json_input }) => (
+  <div>
+    {
+      json_input.officials.map((value,idx) => <li key={idx}>{value.name}</li>)
+      //<button value ="*" onClick={this.calculate}>*</button>
     }
-  
-    //fetch('https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBe7_ta_1zNod6CsCJI6ssWk64kyO14HZo&address=104-40%20Queens%20Blvd%2011375'),
-  
-    useEffect(() => {
-        // var input_address = "";
-        // site.normalizedInput.map(item => input_address+= item + " ");
+  </div>
+);
 
+class SimpleMap extends Component {
+  constructor(props){
+      super(props); 
+      this.state = {
+        address: "",
+        reports: {offices:[""],officials:[""]},
+      };        
 
-      const formattedData = (data || []).map((site) => ({
-        key: site.normalizedInput,
-        output: site.officials,
-        coordinates: {
-            lat: 40.717410,
-            lng: -73.834870,
-          },
-      }));
-      console.log("formatted data", formattedData);
-    setMapMarkers(formattedData);
-
-    return () => {
-      setMapMarkers([]);
-    }
-  }, [data, setMapMarkers]);
-  
-  
-    return (
-      <div className="sidebar-content">
-        {error && 'Error loading content'}
-        {/* {error && formattedData} */}
-        {!data && !error && 'Loading...'}
-        {!error && data && 'Data goes here in addition to the map'}
-      </div>
-    );
+      this.setAddress = this.setAddress.bind(this);
+      this.findRepresentatives = this.findRepresentatives.bind(this);
+      // this.state = { isEmptyState: true, isAddTripState: false  }
+      // this.triggerAddTripState = this.triggerAddTripState.bind(this);
   }
-  
-  RepresentativesPage.getLayout = getLayout;
-  
-  export default RepresentativesPage;
-  
+
+  setAddress(e){
+    e.preventDefault();
+    //if(Number(event.target.value) != NaN)
+        this.setState({address: e.target.value})
+}
+
+  findRepresentatives(e){
+    e.preventDefault();
+    if(this.state.address !== ""){ 
+        fetch(`https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBe7_ta_1zNod6CsCJI6ssWk64kyO14HZo&address=${this.state.address}`,{
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+        })
+        .then(response => response.json())
+        .then(data => { 
+          console.log(data);
+          this.setState({ reports: data})
+        });
+    }
+  }
+
+render() {
+  // var representatives = "";
+  // if(!this.state.reports == []){
+  //   representatives = <RepresentativesByName json_input = {this.state.reports}/>;
+  // }
+
+  return (
+    
+    <div>
+      <h1>Enter your Address: {this.state.answer}</h1>
+      <input value={this.state.address} onChange={this.setAddress}></input>
+      <button onClick={this.findRepresentatives}>Find</button>
+      <RepresentativesByName json_input = {this.state.reports}/>
+    </div>
+
+  );
+}
+}
+
+export default SimpleMap;
