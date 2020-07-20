@@ -17,7 +17,11 @@ export const MapMarker = ({ text, site_info }) => {
 
   return (
     <div className="map-marker-container">
-      <button onClick={toggleInfo} className="map-marker">{text}</button>
+      
+      <button onClick={toggleInfo} className="map-marker">
+        {/* {text} */}
+        {/* <img onClick={toggleInfo} src="https://www.fultoncountyga.gov/-/media/Images/ICONS/COVID/coronavirus-testing-icon-01.ashx?h=300&w=300&la=en&hash=167F5E81A664D85DC93C64981F374240" className="map-marker" ></img> */}
+      </button>
       <div
         className={`map-marker-info${isInfoOpen ? ' map-marker-info--active' : ''}`}
       >   

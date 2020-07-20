@@ -18,6 +18,7 @@ function CovidTestingSitesPage() {
       key: `${site.site_name}+${site.coordinates.lat}+${site.coordinates.lng}`,
       name: site.site_name,   
       site_info: {
+        name: site.site_name, 
         provider_url: site.provider_url,
         additional_info: site.additional_info,
         address: site.address,

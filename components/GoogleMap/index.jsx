@@ -24,7 +24,7 @@ export function GoogleMap() {
        {markers.map((item) => (
           <MapMarker
             key={item.key}
-            text={item.name}
+            //text={item.name}            
             lat={ item.coordinates.lat}
             lng={ item.coordinates.lng}
             site_info= {item.site_info}             

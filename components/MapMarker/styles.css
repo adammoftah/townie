@@ -4,10 +4,14 @@
 
 .map-marker {
   text-align: center;
-  color: #3f51b5;
+  /* color: #3f51b5; */
   font-size: 0.75rem;
   font-weight: bold;
   outline: none;
+  margin: 0px 0px 0px 0px;
+  
+  /* height: 30px;
+  width: 30px; */
 }
 
 .map-marker,
