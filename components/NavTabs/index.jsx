@@ -9,6 +9,9 @@ export function NavTabs() {
       <Link href="/covid-testing-sites">
         <a className="nav-tabs__link">Covid Testing Sites</a>
       </Link>
+      <Link href="/representatives">
+        <a className="nav-tabs__link">Find Your Local Representatives</a>
+      </Link>
     </nav>
   );
 }
