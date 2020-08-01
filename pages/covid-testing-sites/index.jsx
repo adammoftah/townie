@@ -11,9 +11,7 @@ function CovidTestingSitesPage() {
   const { data, error } = useSwr('/api/testing-sites', fetcher);
   if (error) {
     console.error('Error loading data from API for /api/testing-sites: ', error);
-  }
-
-  //fetch('https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBe7_ta_1zNod6CsCJI6ssWk64kyO14HZo&address=104-40%20Queens%20Blvd'),
+  }  
 
   useEffect(() => {
     const formattedData = (data || []).map((site) => ({
